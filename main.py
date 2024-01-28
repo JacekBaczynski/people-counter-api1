@@ -16,13 +16,15 @@ class PeopleCounter(Resource):
         img = cv2.imread('foto1.jpg')
         boxes, weights = hog.detectMultiScale(img, winStride=(4, 4))
 
-        return {'count' : len(boxes)}
+        return {'count': len(boxes)}
+
 
 class HelloWorld(Resource):
     def get(self):
         return {'hello': 'world'}
 
-api.add_resource(PeopleCounter , '/')
+
+api.add_resource(PeopleCounter, '/')
 api.add_resource(HelloWorld, '/test')
 
 if __name__ == '__main__':
